@@ -3,9 +3,12 @@ package com.tomadedesiciones.proyectotomadedecisiones.Scoring;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
+
 
 @RestController
 @RequestMapping("/Saw")
@@ -28,8 +31,13 @@ public class SawController {
     @PostMapping("/generarTablaSaw")
     public ResponseEntity<Map<String, Object>> generarTablaSaw(@RequestBody Map<String, Object> request) {
         // Extraer la matriz y maximizarMinimizar del cuerpo de la solicitud
-        List<List<Double>> matrizList = (List<List<Double>>) request.get("matriz");
-        List<Boolean> maximizarMinimizarList = (List<Boolean>) request.get("maximizarMinimizar");
+        List<List<Double>> matrizList = (List<List<Double>>) request.get("matriz").stream()
+                .map(row -> row.stream().map(element -> Double.parseDouble(element.toString())).collect(Collectors.toList()))
+                .collect(Collectors.toList());
+
+        List<Boolean> maximizarMinimizarList = (List<Boolean>) request.get("maximizarMinimizar").stream()
+                .map(element -> Boolean.parseBoolean(element.toString()))
+                .collect(Collectors.toList());
 
         // Convertir la lista de listas a un array bidimensional
         double[][] matriz = new double[matrizList.size()][];

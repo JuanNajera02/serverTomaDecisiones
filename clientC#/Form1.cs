@@ -22,5 +22,12 @@ namespace Proyecto_Figueroa
             Simplex form = new Simplex();
             form.Show();
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Scoring scoring = new Scoring();
+            scoring.Show();
+
+        }
     }
 }

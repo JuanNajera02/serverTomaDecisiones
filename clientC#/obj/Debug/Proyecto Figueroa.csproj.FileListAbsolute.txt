@@ -12,3 +12,4 @@ C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Fig
 C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.csproj.CopyComplete
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto_Figueroa.Scoring.resources
