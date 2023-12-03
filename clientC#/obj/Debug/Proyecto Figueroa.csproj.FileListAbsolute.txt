@@ -1,0 +1,14 @@
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Proyecto Figueroa.exe.config
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Proyecto Figueroa.exe
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Proyecto Figueroa.pdb
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.csproj.AssemblyReference.cache
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto_Figueroa.Form1.resources
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto_Figueroa.Properties.Resources.resources
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto_Figueroa.Simplex.resources
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.csproj.GenerateResource.cache
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.csproj.CoreCompileInputs.cache
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.exe
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.pdb
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Elias\Documents\WEB 2\Servidor\Proyecto Figueroa\obj\Debug\Proyecto Figueroa.csproj.CopyComplete

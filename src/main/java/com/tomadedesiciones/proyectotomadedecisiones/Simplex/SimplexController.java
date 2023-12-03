@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Simplex")
@@ -33,8 +34,15 @@ public class SimplexController {
     public ResponseEntity<Map<String, Object>> generarSimplex(@RequestBody Map<String, Object> request) {
         try {
             // Obtener los datos de la solicitud
-            List<List<Double>> restricciones = (List<List<Double>>) request.get("restricciones");
-            List<Double> funcionObjetivo = (List<Double>) request.get("funcionObjetivo");
+            // Obtener los datos de la solicitud
+            List<List<Double>> restricciones = ((List<List<Object>>) request.get("restricciones")).stream()
+                    .map(row -> row.stream().map(element -> Double.parseDouble(element.toString())).collect(Collectors.toList()))
+                    .collect(Collectors.toList());
+
+            List<Double> funcionObjetivo = ((List<Object>) request.get("funcionObjetivo")).stream()
+                    .map(element -> Double.parseDouble(element.toString()))
+                    .collect(Collectors.toList());
+
             String tipoOptimizacion = (String) request.get("tipoOptimizacion");
 
             // Convertir a un formato que tu lógica pueda manejar
