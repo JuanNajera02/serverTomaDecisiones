@@ -23,16 +23,16 @@ namespace Proyecto_Figueroa
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private async void button2_Click(object sender, EventArgs e)
         {
-            //ORDEN DE LOS TEXTBOX (color,diseño,dureza,precio,tamaño)
+            //ORDEN DE LOS TEXTBOX (color, diseño, dureza, precio, tamaño)
             //Mesas textbox 1 10 15 20 25
             //Sillas textbox 2 9 14 19 24
             //Base textbox 3 8 13 18 23
-            //cLOSET de ruedas textbox 4 7 12 17 22
+            //Closet de ruedas textbox 4 7 12 17 22
             //Buro textbox 5 6 11 16 21
 
-            //Obtener los datos de la solicitud en un Double List de criterios x alternativas
+            // Obtener los datos de la solicitud en una lista de listas de dobles
             List<List<double>> criterios = new List<List<double>>();
             List<double> criterioColor = new List<double>();
             List<double> criterioDiseño = new List<double>();
@@ -40,48 +40,43 @@ namespace Proyecto_Figueroa
             List<double> criterioPrecio = new List<double>();
             List<double> criterioTamaño = new List<double>();
 
-            //Criterio Color
+            // Llenar criterios
             criterioColor.Add(Double.Parse(textBox1.Text));
             criterioColor.Add(Double.Parse(textBox2.Text));
             criterioColor.Add(Double.Parse(textBox3.Text));
             criterioColor.Add(Double.Parse(textBox4.Text));
             criterioColor.Add(Double.Parse(textBox5.Text));
+            criterios.Add(criterioColor);
 
-            //Criterio Diseño
             criterioDiseño.Add(Double.Parse(textBox10.Text));
             criterioDiseño.Add(Double.Parse(textBox9.Text));
             criterioDiseño.Add(Double.Parse(textBox8.Text));
             criterioDiseño.Add(Double.Parse(textBox7.Text));
             criterioDiseño.Add(Double.Parse(textBox6.Text));
+            criterios.Add(criterioDiseño);
 
-            //Criterio Dureza
             criterioDureza.Add(Double.Parse(textBox15.Text));
             criterioDureza.Add(Double.Parse(textBox14.Text));
             criterioDureza.Add(Double.Parse(textBox13.Text));
             criterioDureza.Add(Double.Parse(textBox12.Text));
             criterioDureza.Add(Double.Parse(textBox11.Text));
+            criterios.Add(criterioDureza);
 
-            //Criterio Precio
             criterioPrecio.Add(Double.Parse(textBox20.Text));
             criterioPrecio.Add(Double.Parse(textBox19.Text));
             criterioPrecio.Add(Double.Parse(textBox18.Text));
             criterioPrecio.Add(Double.Parse(textBox17.Text));
             criterioPrecio.Add(Double.Parse(textBox16.Text));
+            criterios.Add(criterioPrecio);
 
-            //Criterio Tamaño
             criterioTamaño.Add(Double.Parse(textBox25.Text));
             criterioTamaño.Add(Double.Parse(textBox24.Text));
             criterioTamaño.Add(Double.Parse(textBox23.Text));
             criterioTamaño.Add(Double.Parse(textBox22.Text));
             criterioTamaño.Add(Double.Parse(textBox21.Text));
-
-            criterios.Add(criterioColor);
-            criterios.Add(criterioDiseño);
-            criterios.Add(criterioDureza);
-            criterios.Add(criterioPrecio);
             criterios.Add(criterioTamaño);
 
-            //Lista de minimizar o maximizar segun los checkbox seleccionados
+            // Lista de minimizar o maximizar según los checkbox seleccionados
             List<bool> minimizar = new List<bool>();
             minimizar.Add(checkBox1.Checked);
             minimizar.Add(checkBox2.Checked);
@@ -89,20 +84,19 @@ namespace Proyecto_Figueroa
             minimizar.Add(checkBox4.Checked);
             minimizar.Add(checkBox5.Checked);
 
-            /*
-               //ejemplo de input   http://localhost:8080/Saw/generarTablaSaw
-
-                //    {
-                //        "matriz": [
-                //    [0.0, 0.0, 0.0, 0.0, 0.0],
-                //    [4.0, 2.0, 4.0, 2.0, 2.0],
-                //    [2.0, 3.0, 3.0, 2.0, 1.0],
-                //    [2.0, 3.0, 3.0, 1.0, 2.0],
-                //    [4.0, 1.0, 3.0, 1.0, 1.0]
-                //  ],
-                //        "maximizarMinimizar": [true, true, true, true, true]
-                //    }
-             */
+            //Crear una lista de Strings con true o false para saber si se minimiza o maximiza
+            List<String> minimizarString = new List<String>();
+            foreach (var item in minimizar)
+            {
+                if (item == true)
+                {
+                    minimizarString.Add("true");
+                }
+                else
+                {
+                    minimizarString.Add("false");
+                }
+            }
 
             // Formar el JSON
             string url = "http://localhost:8080/Saw/generarTablaSaw";
@@ -114,7 +108,7 @@ namespace Proyecto_Figueroa
             }
 
             json = json.TrimEnd(',') + "],";
-            json += "\"maximizarMinimizar\":[" + string.Join(",", minimizar) + "]";
+            json += "\"maximizarMinimizar\":[" + string.Join(",", minimizarString) + "]";
             json += "}";
             MessageBox.Show(json);
 
@@ -124,22 +118,49 @@ namespace Proyecto_Figueroa
 
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            // Enviar el JSON
-            var response = client.PostAsync(url, content).Result;
+            try
+            {
+                // Enviar el JSON de manera asincrónica y esperar la respuesta
+                var response = await client.PostAsync(url, content);
 
-            // Obtener el JSON de respuesta
-            var responseString = response.Content.ReadAsStringAsync().Result;
+                // Verificar si la solicitud fue exitosa
+                response.EnsureSuccessStatusCode();
 
-            // Mensaje de respuesta
-            MessageBox.Show(responseString);
+                // Obtener el JSON de respuesta de manera asincrónica
+                var responseString = await response.Content.ReadAsStringAsync();
 
-            // Procesar el JSON
-            var dict = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString);
+                // Mensaje de respuesta
+                MessageBox.Show(responseString);
 
+                // Procesar el JSON
+                var dict = Newtonsoft.Json.JsonConvert.DeserializeObject<Dictionary<string, object>>(responseString);
 
+                //cargar "objetivos" en obj.text y "matrizDivisiones" en matriz.text
+                var objetivos = dict["objetivos"];
+                var matrizDivisiones = dict["matrizDivisiones"];
 
+                //MessageBox.Show(objetivos.ToString());
+                //MessageBox.Show(matrizDivisiones.ToString());
 
+                // Mostrar el resultado
+                obj.Text = "Objetivos: " + objetivos.ToString();
+                richTextBox1.Text = "Matriz Divisiones: \n" + matrizDivisiones.ToString();
+            }
+            catch (HttpRequestException ex)
+            {
+                // Manejar cualquier error de solicitud HTTP
+                MessageBox.Show($"Error de solicitud HTTP: {ex.Message}");
+            }
+        }
 
+        private void checkBox7_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void vScrollBar1_Scroll(object sender, ScrollEventArgs e)
+        {
+            
 
         }
     }

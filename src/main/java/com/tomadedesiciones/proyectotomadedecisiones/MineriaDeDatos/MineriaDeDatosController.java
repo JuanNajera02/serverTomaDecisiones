@@ -36,7 +36,7 @@ public class MineriaDeDatosController {
                 double parch = ((Number) request.get("parch")).doubleValue();
 
                 // Especificar el archivo CSV para la exploración de datos
-                String archivoCSV = "C:\\Users\\Juan Pablo\\Desktop\\7TO SEMESTRE UAS\\Toma de Decisiones\\proyectotomadedecisiones\\src\\main\\java\\com\\tomadedesiciones\\proyectotomadedecisiones\\MineriaDeDatos\\Titanic.csv";
+                String archivoCSV = "src/main/java/com/tomadedesiciones/proyectotomadedecisiones/MineriaDeDatos/Titanic.csv";
 
                 // Crear una instancia de MineriaDatosTitanic para cargar los datos
                 MineriaDatosTitanic mineriaDatosTitanic = new MineriaDatosTitanic();

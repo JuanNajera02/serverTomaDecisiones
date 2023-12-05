@@ -37,16 +37,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.textBox13 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.textBox11 = new System.Windows.Forms.TextBox();
@@ -71,17 +72,18 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label3);
@@ -180,15 +182,34 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "RESTRICCIONES";
             // 
-            // label14
+            // groupBox4
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(127, 33);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(244, 13);
-            this.label14.TabIndex = 23;
-            this.label14.Text = "HORAS NECESARIAS PARA CADA PRODUCTO";
-            this.label14.Click += new System.EventHandler(this.label14_Click);
+            this.groupBox4.Controls.Add(this.textBox15);
+            this.groupBox4.Controls.Add(this.textBox14);
+            this.groupBox4.Controls.Add(this.label13);
+            this.groupBox4.Controls.Add(this.textBox13);
+            this.groupBox4.Controls.Add(this.label11);
+            this.groupBox4.Controls.Add(this.label12);
+            this.groupBox4.Location = new System.Drawing.Point(395, 54);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(182, 120);
+            this.groupBox4.TabIndex = 24;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "LIMITES";
+            // 
+            // textBox15
+            // 
+            this.textBox15.Location = new System.Drawing.Point(50, 25);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(72, 20);
+            this.textBox15.TabIndex = 16;
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(50, 59);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(72, 20);
+            this.textBox14.TabIndex = 17;
             // 
             // label13
             // 
@@ -198,6 +219,13 @@
             this.label13.Size = new System.Drawing.Size(44, 13);
             this.label13.TabIndex = 22;
             this.label13.Text = "Lijadora";
+            // 
+            // textBox13
+            // 
+            this.textBox13.Location = new System.Drawing.Point(50, 89);
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(72, 20);
+            this.textBox13.TabIndex = 18;
             // 
             // label11
             // 
@@ -217,6 +245,16 @@
             this.label12.TabIndex = 20;
             this.label12.Text = "Router";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(127, 33);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(244, 13);
+            this.label14.TabIndex = 23;
+            this.label14.Text = "HORAS NECESARIAS PARA CADA PRODUCTO";
+            this.label14.Click += new System.EventHandler(this.label14_Click);
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -235,13 +273,6 @@
             this.label9.TabIndex = 4;
             this.label9.Text = "Router";
             // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(50, 89);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(72, 20);
-            this.textBox13.TabIndex = 18;
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -250,20 +281,6 @@
             this.label10.Size = new System.Drawing.Size(44, 13);
             this.label10.TabIndex = 3;
             this.label10.Text = "Lijadora";
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(50, 59);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(72, 20);
-            this.textBox14.TabIndex = 17;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(50, 25);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(72, 20);
-            this.textBox15.TabIndex = 16;
             // 
             // label7
             // 
@@ -376,9 +393,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(643, 212);
+            this.button2.Location = new System.Drawing.Point(461, 15);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(106, 67);
+            this.button2.Size = new System.Drawing.Size(104, 34);
             this.button2.TabIndex = 3;
             this.button2.Text = "Calcular";
             this.button2.UseVisualStyleBackColor = true;
@@ -481,28 +498,23 @@
             this.label18.TabIndex = 3;
             this.label18.Text = "Mesas";
             // 
-            // groupBox4
+            // label24
             // 
-            this.groupBox4.Controls.Add(this.textBox15);
-            this.groupBox4.Controls.Add(this.textBox14);
-            this.groupBox4.Controls.Add(this.label13);
-            this.groupBox4.Controls.Add(this.textBox13);
-            this.groupBox4.Controls.Add(this.label11);
-            this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(395, 54);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(182, 120);
-            this.groupBox4.TabIndex = 24;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "LIMITES";
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(307, 13);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(145, 24);
+            this.label24.TabIndex = 39;
+            this.label24.Text = "CARPINTERIA";
             // 
             // Simplex
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(801, 450);
+            this.ClientSize = new System.Drawing.Size(608, 450);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Name = "Simplex";
@@ -511,11 +523,12 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -565,5 +578,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.Label label24;
     }
 }

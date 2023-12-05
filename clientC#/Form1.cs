@@ -29,5 +29,11 @@ namespace Proyecto_Figueroa
             scoring.Show();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MineriaDatos mineria = new MineriaDatos();
+            mineria.Show();
+        }
     }
 }
